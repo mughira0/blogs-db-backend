@@ -5,6 +5,7 @@ const {
   createBlog,
   updateBlog,
   deleteBlog,
+  getUserBlogs,
 } = require("../controllers/blogs");
 const router = express.Router();
 const authMiddleware = require("../middleware/authentication");
@@ -20,5 +21,5 @@ router
   .route("/:id")
   .patch(upload.single("image"), updateBlog)
   .delete(deleteBlog);
-router.route("/my-blog/:id").get(getBlogById);
+router.route("/my-blog/:id").get(getUserBlogs);
 module.exports = router;
