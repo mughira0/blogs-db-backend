@@ -65,6 +65,18 @@ const Blog = {
       });
     });
   },
+  getBlogsByUserId: (userId) => {
+    return new Promise((resolve, reject) => {
+      db.query(
+        "SELECT * FROM blogs WHERE user_id = ?",
+        [userId],
+        (err, results) => {
+          if (err) return reject(err);
+          resolve(results);
+        }
+      );
+    });
+  },
 
   getBlogsByCategory: (category, excludeId) => {
     return new Promise((resolve, reject) => {

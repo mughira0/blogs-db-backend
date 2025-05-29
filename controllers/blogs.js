@@ -20,6 +20,18 @@ const getAllBlogs = async (req, res) => {
       .json({ error: error.message || "Something went wrong." });
   }
 };
+const getUserBlogs = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const blogs = await Blog.getBlogsByUserId(id);
+    res.status(StatusCodes.OK).json(blogs);
+  } catch (error) {
+    console.error("Error fetching blogs:", error);
+    res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ error: error.message || "Something went wrong." });
+  }
+};
 
 const getBlog = async (req, res) => {
   const { id } = req.params;
