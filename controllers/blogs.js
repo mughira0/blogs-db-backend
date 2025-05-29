@@ -22,6 +22,7 @@ const getAllBlogs = async (req, res) => {
 };
 const getUserBlogs = async (req, res) => {
   const { id } = req.params;
+  console.log(id);
   try {
     const blogs = await Blog.getBlogsByUserId(id);
     res.status(StatusCodes.OK).json(blogs);
@@ -59,6 +60,7 @@ const getBlog = async (req, res) => {
 };
 
 const createBlog = async (req, res) => {
+  console.log("req.file", req.file);
   const { title, description, category } = req.body;
   const userId = req.user?.userId;
   const image = req.file?.filename || null;
