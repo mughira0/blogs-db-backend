@@ -6,7 +6,7 @@ const { DB_HOST, DB_USER, DB_NAME } = process.env;
 const connection = mysql.createConnection({
   host: DB_HOST,
   user: DB_USER,
-  password: process.env.DB_PASSWORD,
+  // password: process.env.DB_PASSWORD,
 });
 
 // Connect and create DB if needed
@@ -34,7 +34,7 @@ const db = mysql.createConnection({
   host: DB_HOST,
   user: DB_USER,
   database: DB_NAME,
-  password: process.env.DB_PASSWORD,
+  // password: process.env.DB_PASSWORD,
 });
 db.connect((err) => {
   if (err) {
@@ -94,3 +94,10 @@ db.connect((err) => {
 });
 
 module.exports = db;
+// DB_HOST=127.0.0.1
+// DB_USER=root
+// DB_PASSWORD=12345678
+// PORT=3306
+// JWT_SECRET=BLOG_PROJECT
+// JWT_LIFETIME=1d
+// DB_NAME=BLOGS

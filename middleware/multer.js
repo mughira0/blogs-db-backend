@@ -3,11 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const storage = multer.diskStorage({
   destination: (req, file, callBack) => {
-    const dir = "ImagesDir";
-
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir);
-    }
+    const dir = "images";
 
     callBack(null, dir);
   },
